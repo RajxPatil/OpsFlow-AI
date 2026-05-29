@@ -1,0 +1,28 @@
+# environment
+.env
+.env.*
+!.env.example
+
+# dependencies
+node_modules/
+frontend/node_modules/
+
+# build outputs
+.next/
+frontend/.next/
+dist/
+build/
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# backups
+backend_backup_phase3/
+backend_backup_phase5_search/
+
+# local/system
+.DS_Store
+*.log

@@ -1,0 +1,9 @@
+title,body,customer,channel,priority,status
+Payment debited twice for annual subscription,"Customer says their card was charged twice and wants a refund invoice correction before finance close.",Ananya,gmail,high,open
+Checkout outage impacting multiple merchants,"Several merchants report checkout down after the latest release. Orders are failing with payment timeout errors.",Merchant Ops,slack,urgent,open
+OTP login not working on Android,"User cannot login because OTP screen crashes repeatedly after entering mobile number.",Rohit,gmail,high,open
+Late delivery for premium customer,"Shipment has been delayed for 3 days and customer is requesting escalation with latest ETA.",Meera,zendesk,medium,open
+Feature request for bulk export,"Customer success team requested CSV export for filtered ticket analytics and recurring reports.",CS Team,notion,low,open
+Positive feedback for support agent,"Customer thanked support team for resolving onboarding issue quickly.",Kavya,gmail,low,open
+GST invoice mismatch,"Finance team reports GST number is incorrect on invoice and customer needs corrected document today.",Acme Finance,gmail,high,open
+API integration failure after token rotation,"Partner integration started failing after token rotation. Error logs show unauthorized responses from webhook calls.",Partner Team,github,high,open
