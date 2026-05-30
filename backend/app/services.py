@@ -220,11 +220,30 @@ def generate_actions(db: Session, workspace: Workspace, user: User, limit: int =
 
 
 def review_action(db: Session, workspace: Workspace, user: User, action_id: UUID, status: ActionStatus) -> SuggestedAction:
-    action = db.query(SuggestedAction).filter(SuggestedAction.id == action_id, SuggestedAction.workspace_id == workspace.id).first()
+    action = (
+        db.query(SuggestedAction)
+        .filter(
+            SuggestedAction.id == action_id,
+            SuggestedAction.workspace_id == workspace.id,
+        )
+        .first()
+    )
+
     if not action:
         raise ValueError("Suggested action not found")
+
+    # Idempotent retry path:
+    # If the same approve/reject request is repeated, return the existing action
+    # without creating duplicate integration events or audit logs.
+    if action.status == status:
+        return action
+
+    # Prevent changing a final decision.
     if action.status != ActionStatus.pending:
-        raise ValueError("Only pending actions can be reviewed")
+        raise ValueError(
+            f"Action has already been reviewed as {action.status.value}. "
+            "Reviewed actions cannot be changed."
+        )
 
     action.status = status
     action.reviewed_by_id = user.id
@@ -232,6 +251,7 @@ def review_action(db: Session, workspace: Workspace, user: User, action_id: UUID
 
     if status == ActionStatus.approved:
         _simulate_integration_event(db, workspace, action)
+
         if action.action_type.value == "escalate_issue":
             action.work_item.status = WorkItemStatus.escalated
         elif action.action_type.value == "draft_reply":
@@ -245,14 +265,31 @@ def review_action(db: Session, workspace: Workspace, user: User, action_id: UUID
         "suggested_action",
         action.id,
         f"{status.value.title()} action: {action.title}",
-        {"action_type": action.action_type.value, "work_item_id": str(action.work_item_id)},
+        {
+            "action_type": action.action_type.value,
+            "work_item_id": str(action.work_item_id),
+            "idempotent": True,
+        },
     )
+
     db.commit()
     db.refresh(action)
     return action
 
 
 def _simulate_integration_event(db: Session, workspace: Workspace, action: SuggestedAction) -> None:
+    existing_event = (
+        db.query(IntegrationEvent)
+        .filter(
+            IntegrationEvent.workspace_id == workspace.id,
+            IntegrationEvent.suggested_action_id == action.id,
+        )
+        .first()
+    )
+
+    if existing_event:
+        return
+
     provider = {
         "draft_reply": "gmail",
         "create_task": "jira",
@@ -261,6 +298,7 @@ def _simulate_integration_event(db: Session, workspace: Workspace, action: Sugge
         "slack_alert": "slack",
         "github_issue": "github",
     }.get(action.action_type.value, "opsflow")
+
     event = IntegrationEvent(
         workspace_id=workspace.id,
         suggested_action_id=action.id,
@@ -268,8 +306,13 @@ def _simulate_integration_event(db: Session, workspace: Workspace, action: Sugge
         event_name=f"{provider}.{action.action_type.value}",
         status="simulated_success",
         request_payload=action.payload,
-        response_payload={"external_id": f"mock-{provider}-{str(action.id)[:8]}", "human_approved": True},
+        response_payload={
+            "external_id": f"mock-{provider}-{str(action.id)[:8]}",
+            "human_approved": True,
+            "idempotency_key": f"action-{action.id}",
+        },
     )
+
     db.add(event)
 
 
