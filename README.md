@@ -481,3 +481,20 @@ Implemented async CSV ingestion, provider-agnostic AI architecture, semantic ret
 ## License
 
 This project is for portfolio and educational purposes.
+
+## Author & Contact
+
+Made by **Raj Patil**.
+
+For work-related discussions, collaborations, hiring conversations, or project walkthroughs, reach out at:
+
+**rajpatil172004@gmail.com**
+
+## License & Usage
+
+This project is built as a personal engineering portfolio project by **Raj Patil**.
+
+Please do not copy, resell, or present this project as your own work. You may reference the architecture, product ideas, or implementation approach with proper credit.
+
+© 2026 Raj Patil. All rights reserved.
+
