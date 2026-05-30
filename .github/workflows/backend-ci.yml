@@ -1,0 +1,60 @@
+name: Backend CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  backend-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create safe CI environment file
+        run: |
+          cat > .env <<'ENV'
+          POSTGRES_USER=opsflow
+          POSTGRES_PASSWORD=opsflow
+          POSTGRES_DB=opsflow
+          DATABASE_URL=postgresql+psycopg://opsflow:opsflow@db:5432/opsflow
+          REDIS_URL=redis://redis:6379/0
+          SECRET_KEY=ci-secret-key-for-tests-only
+          ACCESS_TOKEN_EXPIRE_MINUTES=1440
+          AI_PROVIDER=mock
+          GEMINI_API_KEY=
+          GEMINI_MODEL=gemini-2.5-flash-lite
+          ENV
+
+      - name: Build and start Docker services
+        run: docker compose up --build -d
+
+      - name: Show running containers
+        run: docker compose ps
+
+      - name: Wait for backend health
+        run: |
+          for i in {1..30}; do
+            if curl -fsS http://localhost:8000/health; then
+              echo "Backend is healthy"
+              exit 0
+            fi
+            echo "Waiting for backend..."
+            sleep 2
+          done
+          docker compose logs backend
+          exit 1
+
+      - name: Run backend tests
+        run: docker compose exec -T backend pytest -q
+
+      - name: Show logs on failure
+        if: failure()
+        run: docker compose logs
+
+      - name: Stop Docker services
+        if: always()
+        run: docker compose down
