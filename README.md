@@ -8,6 +8,16 @@ This project is built as a production-style full-stack system using **Next.js, F
 
 ---
 
+## Live Demo
+
+Frontend: https://ops-flow-ai.vercel.app/  
+Backend API: https://opsflow-ai-api.onrender.com/health  
+
+Demo login:
+
+- Email: demo@opsflow.ai
+- Password: demo123
+
 ## Demo Flow
 
 ![OpsFlow AI Demo Flow](docs/assets/opsflow-ai-demo-flow.png)
