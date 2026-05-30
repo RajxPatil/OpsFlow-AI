@@ -484,3 +484,7 @@ Implemented async CSV ingestion, provider-agnostic AI architecture, semantic ret
 ## License
 
 This project is for portfolio and educational purposes.
+
+## Demo Flow
+
+![OpsFlow AI Demo Flow](docs/assets/opsflow-ai-demo-flow.png)
