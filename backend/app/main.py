@@ -49,6 +49,7 @@ from app.services import (
     review_action,
     semantic_search_work_items,
     similar_work_items,
+    process_ingestion_job,
 )
 
 Base.metadata.create_all(bind=engine)
@@ -202,7 +203,10 @@ async def upload_csv(
     workspace = get_demo_workspace(db, current_user)
     try:
         job = create_ingestion_job(db, workspace, current_user, file.filename, await file.read())
-        enqueue_ingestion_job(job.id)
+        if settings.process_jobs_inline:
+            job = process_ingestion_job(db, job.id)
+        else:
+            enqueue_ingestion_job(job.id)
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     return UploadResult(job_id=job.id, status=job.status, row_count=job.row_count)
