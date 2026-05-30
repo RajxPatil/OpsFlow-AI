@@ -8,6 +8,16 @@ This project is built as a production-style full-stack system using **Next.js, F
 
 ---
 
+## Demo Flow
+
+![OpsFlow AI Demo Flow](docs/assets/opsflow-ai-demo-flow.png)
+
+OpsFlow AI follows a reviewer-first workflow:
+
+`Login → Reset Demo → Upload CSV → Worker Processing → AI Suggested Actions → Inspect Evidence → Approve/Reject → Mock Connector Execution → Audit Trail → Semantic Search`
+
+---
+
 ## Why this project exists
 
 Operations teams handle repetitive requests across support, billing, logistics, engineering, and internal workflows. Fully autonomous AI agents are risky in real business environments because they can take incorrect actions without accountability.
@@ -271,29 +281,6 @@ Password: demo123
 
 ---
 
-## Demo Flow
-
-1. Open the dashboard.
-2. Click **Reset Demo**.
-3. Upload the sample CSV from `sample_data/`.
-4. Wait for background ingestion to complete.
-5. Review generated AI actions.
-6. Click **Inspect** to view evidence and payload.
-7. Approve or reject an action.
-8. Check the audit trail and metrics.
-9. Use semantic search to find related tickets.
-
-Example semantic search queries:
-
-```txt
-refund payment failed
-urgent outage
-delivery delay
-login OTP error
-```
-
----
-
 ## API Overview
 
 | Method | Endpoint | Purpose |
@@ -484,7 +471,3 @@ Implemented async CSV ingestion, provider-agnostic AI architecture, semantic ret
 ## License
 
 This project is for portfolio and educational purposes.
-
-## Demo Flow
-
-![OpsFlow AI Demo Flow](docs/assets/opsflow-ai-demo-flow.png)
