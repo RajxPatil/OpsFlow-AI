@@ -1,9 +1,101 @@
 title,body,customer,channel,priority,status
-Payment debited twice for annual subscription,"Customer says their card was charged twice and wants a refund invoice correction before finance close.",Ananya,gmail,high,open
-Checkout outage impacting multiple merchants,"Several merchants report checkout down after the latest release. Orders are failing with payment timeout errors.",Merchant Ops,slack,urgent,open
-OTP login not working on Android,"User cannot login because OTP screen crashes repeatedly after entering mobile number.",Rohit,gmail,high,open
-Late delivery for premium customer,"Shipment has been delayed for 3 days and customer is requesting escalation with latest ETA.",Meera,zendesk,medium,open
-Feature request for bulk export,"Customer success team requested CSV export for filtered ticket analytics and recurring reports.",CS Team,notion,low,open
-Positive feedback for support agent,"Customer thanked support team for resolving onboarding issue quickly.",Kavya,gmail,low,open
-GST invoice mismatch,"Finance team reports GST number is incorrect on invoice and customer needs corrected document today.",Acme Finance,gmail,high,open
-API integration failure after token rotation,"Partner integration started failing after token rotation. Error logs show unauthorized responses from webhook calls.",Partner Team,github,high,open
+Payment debited twice for annual subscription,Customer says their card was charged twice and wants a refund invoice correction before finance close.,Ananya,gmail,high,open
+Checkout outage impacting multiple merchants,Several merchants report checkout down after the latest release. Orders are failing with payment timeout errors.,Merchant Ops,slack,urgent,open
+OTP login not working on Android,User cannot login because OTP screen crashes repeatedly after entering mobile number.,Rohit,gmail,high,open
+Late delivery for premium customer,Shipment has been delayed for 3 days and customer is requesting escalation with latest ETA.,Meera,zendesk,medium,open
+Feature request for bulk export,Customer success team requested CSV export for filtered ticket analytics and recurring reports.,CS Team,notion,low,open
+Positive feedback for support agent,Customer thanked support team for resolving onboarding issue quickly.,Kavya,gmail,low,open
+GST invoice mismatch,Finance team reports GST number is incorrect on invoice and customer needs corrected document today.,Acme Finance,gmail,high,open
+API integration failure after token rotation,Partner integration started failing after token rotation. Error logs show unauthorized responses from webhook calls.,Partner Team,github,high,open
+Refund pending for failed UPI payment,"Customer paid through UPI, order failed, and refund has not reflected after five business days.",Pranav,gmail,high,open
+Webhook delivery timeout for CRM sync,CRM webhook calls are timing out and sales updates are not reaching the downstream dashboard.,RevOps,github,high,open
+Password reset link expired immediately,User receives password reset email but the link shows expired within seconds and blocks account access.,Isha,zendesk,medium,open
+Mobile app crashes on order history page,Android app crashes when the customer opens order history after updating to the latest version.,Nikhil,gmail,medium,open
+Invoice PDF download returns 500,Finance users cannot download invoice PDFs because the endpoint returns internal server error.,FinOps,slack,high,open
+Customer asks to cancel duplicate order,Two orders were created for the same cart and customer wants the duplicate cancelled before dispatch.,Sneha,gmail,medium,open
+Data export missing March transactions,Analytics export excludes several March transactions and operations needs corrected report for reconciliation.,Analytics Ops,notion,medium,open
+Urgent security concern for unknown login,Customer reports suspicious login from a new city and wants sessions revoked immediately.,Vikram,gmail,urgent,open
+Admin dashboard charts not loading,Internal dashboard shows blank charts after the morning deployment and team cannot view SLA metrics.,Ops Lead,slack,high,open
+Coupon code applied but discount missing,Customer applied a campaign coupon but checkout charged full amount without discount.,Aditi,zendesk,medium,open
+SLA breach for enterprise support ticket,Enterprise account has waited 18 hours without response and account manager is asking for escalation.,Enterprise AM,slack,urgent,open
+Address update not saved before shipping,Customer updated delivery address but shipment still used the old address and may be misdelivered.,Farhan,gmail,high,open
+Payment gateway latency spike,Monitoring shows payment gateway latency above 8 seconds and checkout conversions are dropping.,Payments Team,slack,urgent,open
+Subscription renewal charged after cancellation,Customer cancelled subscription last week but was still charged during renewal cycle.,Rhea,gmail,high,open
+Bulk upload fails on large CSV,Operations team tried uploading a 15 MB CSV and ingestion failed without showing a clear error.,Warehouse Ops,notion,medium,open
+Account locked after too many OTP attempts,Customer is locked out after repeated OTP failures and needs access restored for urgent purchase.,Manish,zendesk,high,open
+Partner API rate limit exceeded,Integration partner is receiving rate limit errors after campaign traffic increased this morning.,Partner Integrations,github,medium,open
+Refund approved but not processed,Support approved refund in dashboard but payment provider still shows no refund transaction created.,Devika,gmail,high,open
+Order tracking page shows wrong courier,Customer sees courier A on tracking page while warehouse system says courier B assigned.,Ramesh,zendesk,medium,open
+Search results returning irrelevant items,Users searching for laptop accessories are seeing grocery products at the top of results.,Marketplace Ops,slack,medium,open
+Customer requests GST split invoice,Enterprise buyer wants separate GST invoices for two branches under the same purchase order.,Bharat Retail,gmail,medium,open
+High priority merchant onboarding blocked,Merchant cannot complete KYC verification because document upload is stuck at processing.,Onboarding Team,slack,high,open
+Delivery marked complete but package missing,Customer says delivery is marked complete but they did not receive the package or OTP call.,Pooja,zendesk,high,open
+Email notifications delayed,Password and order confirmation emails are delayed by more than 20 minutes across multiple customers.,Support Ops,slack,high,open
+Admin cannot change user role,Workspace admin gets permission denied while trying to assign manager role to a new teammate.,SaaS Admin,gmail,medium,open
+Checkout page stuck after applying wallet,Customer wallet balance is deducted but checkout page stays on loading and order is not confirmed.,Harsh,gmail,urgent,open
+Duplicate support tickets created,Zendesk sync created duplicate tickets for the same email thread and confused assignment queue.,Support Manager,zendesk,low,open
+Negative review after delayed refund,Customer left negative review because refund timeline exceeded promised SLA by two days.,Brand Team,notion,medium,open
+API returns stale inventory count,Storefront is showing items in stock although warehouse inventory service says zero quantity.,Inventory Ops,github,high,open
+Login works on web but fails on iOS,iOS users report login failure after entering valid credentials while web login works normally.,Mobile QA,slack,high,open
+Incorrect tax calculation on cart,Cart tax is calculated using old state code after customer changes shipping address.,Tax Ops,gmail,high,open
+Customer requests account deletion,User wants account and personal data deleted and asks for confirmation under privacy policy.,Neeraj,gmail,medium,open
+Critical outage in seller payout dashboard,Sellers cannot view payout status and multiple merchants are escalating on Slack.,Seller Ops,slack,urgent,open
+Failed invoice email resend,Support agent tried resending invoice email but the message bounced with provider error.,Invoice Support,gmail,medium,open
+Product image upload compresses badly,Merchant uploaded high quality images but product page displays blurry compressed versions.,Fashion Merchant,zendesk,low,open
+Customer cannot update saved card,Saved card update fails with payment method validation error even though bank authorization succeeds.,Kunal,gmail,medium,open
+Warehouse scan events not syncing,Barcode scan events from warehouse devices are not appearing in the order timeline.,Warehouse Lead,slack,high,open
+Premium user cannot access paid feature,Subscription is active but feature access check says plan does not include premium analytics.,Priya,zendesk,high,open
+Refund amount lower than expected,Customer received partial refund but original invoice shows full refundable amount according to policy.,Sanjay,gmail,medium,open
+Slow dashboard after applying date filter,Operations dashboard takes more than 30 seconds when filtering last quarter data.,Ops Analytics,notion,medium,open
+Two factor authentication setup fails,User scans QR code but authenticator app codes are rejected as invalid during setup.,Security Team,github,high,open
+Checkout button disabled for COD orders,Cash-on-delivery eligible customers see disabled checkout button on mobile web.,COD Ops,slack,high,open
+Customer asks for escalation call,High value customer wants manager call because issue remains unresolved after three support replies.,Anil,gmail,medium,open
+New release broke coupon validation,After release 2.8.1 coupon validation fails for all app-only campaign codes.,Growth Team,slack,urgent,open
+Wrong language in notification template,Tamil users are receiving Hindi notification copy after template migration.,Localization Ops,notion,low,open
+Merchant settlement report mismatch,Settlement report total differs from bank credit amount by 17800 rupees.,Merchant Finance,gmail,high,open
+Product variant selection resets cart,Selecting size variant resets cart quantity and removes previously selected add-ons.,QA Team,github,medium,open
+Urgent compliance request for audit logs,Compliance team needs audit logs for admin actions before external audit tomorrow.,Compliance,slack,urgent,open
+User profile photo upload stuck,Profile photo upload remains at 99 percent and never completes on Chrome browser.,Mitali,zendesk,low,open
+Customer charged international fee,Customer says domestic card transaction was routed internationally and bank charged extra fee.,Payments Support,gmail,medium,open
+Shipment ETA missing for express order,Express order page does not show promised delivery date and customer wants assurance.,Express Ops,zendesk,medium,open
+Webhook signature verification failing,Partner webhooks fail signature validation after secret rotation and events are being dropped.,API Partner,github,high,open
+Failed login due to captcha loop,User keeps solving captcha but login screen reloads and asks again repeatedly.,Shalini,gmail,medium,open
+Bulk refund tool times out,Finance team selected 120 refunds and the bulk refund operation timed out halfway.,Refund Ops,slack,high,open
+Customer wants address proof invoice,Customer requests invoice with complete billing address for employer reimbursement claim.,Arjun,gmail,low,open
+Product recommendation widget blank,Homepage recommendation widget is blank for logged-in users after personalization rollout.,Personalization Team,slack,medium,open
+Internal notes visible to customer,Support agent reports internal note content appeared in customer email thread unexpectedly.,Support QA,zendesk,urgent,open
+Failed bank mandate registration,Auto-debit mandate registration fails after OTP verification with generic provider error.,Subscriptions Ops,gmail,high,open
+Delayed pickup for return request,Return pickup was scheduled but courier has not contacted customer for four days.,Return Ops,zendesk,medium,open
+API docs missing pagination details,Developer partner cannot integrate listing endpoint because pagination parameters are undocumented.,Developer Partner,github,low,open
+High CPU alerts after cron deployment,Backend CPU usage spiked after nightly cron job changes and requests are getting slower.,Infra Team,slack,urgent,open
+Customer cannot download warranty card,Warranty card download link opens blank page for electronics category purchases.,Electronics Buyer,gmail,medium,open
+KYC document rejected incorrectly,Merchant says valid GST certificate was rejected by automated KYC validation.,KYC Ops,notion,medium,open
+Search API returns 429 for normal traffic,Search endpoint is rate limiting standard mobile app traffic after config change.,Search Team,github,high,open
+Refund notification sent twice,Customer received two refund confirmation messages with different timestamps for same order.,Notification Ops,slack,low,open
+Manager approval workflow stuck,Expense approval workflow is stuck after manager approved the request but finance status did not update.,Finance Ops,notion,medium,open
+Unexpected logout during payment,Customer is logged out when redirected back from payment gateway and order state is lost.,Naveen,gmail,high,open
+Seller cannot upload catalog,Catalog upload fails for sellers when file contains more than 500 SKUs.,Seller Support,zendesk,medium,open
+Compliance alert for PII in logs,Security scan found phone numbers and email addresses in application logs.,Security Ops,slack,urgent,open
+Analytics event duplication,Checkout_started event is firing twice and conversion dashboard is overcounting funnel entries.,Data Team,github,medium,open
+Return refund split across wallet and card,Customer asks why return refund was split between wallet and card instead of original method.,Customer Care,gmail,low,open
+Chat support widget offline,Website chat widget shows offline even though support agents are available in the console.,Support Ops,slack,high,open
+Customer cannot change phone number,Phone number update requires OTP to old number that customer no longer has access to.,Aman,zendesk,medium,open
+Database migration caused missing orders,"After migration, support cannot find several orders created between 1 AM and 2 AM.",Backend Team,github,urgent,open
+Unclear cancellation policy question,Customer asks whether cancellation fee applies because order is packed but not shipped.,Komal,gmail,low,open
+Wallet cashback not credited,Promotional cashback was promised after payment but wallet balance did not update.,Cashback Ops,zendesk,medium,open
+API key exposed in partner screenshot,Partner accidentally shared screenshot containing API key and needs immediate rotation guidance.,Security Partner,gmail,urgent,open
+Customer reports rude delivery behavior,Customer complained about delivery agent behavior and requested escalation to logistics manager.,Logistics CS,zendesk,medium,open
+Low stock alert not triggered,Low stock alert did not trigger for fast-moving SKU and storefront oversold inventory.,Inventory Manager,slack,high,open
+Billing page shows old company name,Company changed legal name but billing page and invoices still show old entity name.,Legal Ops,notion,medium,open
+New user onboarding email missing,New users created after noon did not receive onboarding email or activation instructions.,Growth Ops,slack,high,open
+Repeated payment failure for same BIN,Cards from one bank BIN are failing with issuer unavailable while other cards work.,Payments Risk,github,high,open
+Customer asks for tax exemption support,Nonprofit customer wants tax exemption applied to annual invoice before payment.,Nonprofit Buyer,gmail,low,open
+Warehouse priority queue not respecting SLA,Premium orders are not moving ahead in warehouse queue despite SLA priority flag.,Fulfillment Ops,slack,high,open
+User cannot accept updated terms,Terms acceptance modal keeps reappearing even after user clicks accept.,Legal Product,zendesk,medium,open
+Live tracking map shows wrong location,Tracking map pins delivery agent 20 km away from actual route and customers are calling support.,Delivery Ops,slack,medium,open
+Failed payout due to invalid IFSC,Seller payout failed because IFSC validation accepted outdated branch code during onboarding.,Seller Finance,gmail,high,open
+Customer requests invoice correction before month end,Customer needs billing name corrected today so finance can close monthly accounts.,Enterprise Finance,gmail,high,open
+Cart abandoned due to slow payment page,Session recordings show customers dropping at payment page because loading spinner stays too long.,Growth Analytics,notion,medium,open
+Suspicious refund pattern detected,Risk team found repeated refund requests from same device across multiple accounts.,Risk Ops,slack,urgent,open
+Support macro inserted wrong refund amount,Agent macro inserted outdated refund amount in email reply and customer is confused.,Support QA,zendesk,low,open
+Merchant app push notifications failing,Merchant app is not receiving order alerts after push certificate renewal.,Merchant Mobile,github,high,open
